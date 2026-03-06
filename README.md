@@ -22,6 +22,12 @@ Syntax:
 ?config_page[target-route][key-1]=value-1&config_page[target-route][key-2]=value-2
 ```
 
+Example — change the number of card columns on the course list page:
+```
+https://demo.hibbittsdesign.org/grav-helios-course-hub/?config_page[courses][cards_per_row]=2
+```
+[https://demo.hibbittsdesign.org/grav-helios-course-hub/?config_page[courses][cards_per_row]=2](https://demo.hibbittsdesign.org/grav-helios-course-hub/?config_page[courses][cards_per_row]=2)
+
 Example — change a course icon (non-routable page, visited via child page):
 ```
 https://demo.hibbittsdesign.org/grav-helios-course-hub/cpt-363-1/home?config_page[cpt-363-1][icon]=tabler/rocket.svg
