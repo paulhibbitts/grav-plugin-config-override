@@ -3,7 +3,9 @@ version: 1.0.0
 description: Override page frontmatter and theme config via URL query params at runtime. Keep disabled in production.
 icon: code
 author:
-  name: Paul Hibbitts
+  name: Hibbitts Design
+  email: paul@hibbittsdesign.org
+  url: http://hibbittsdesign.org
 license: MIT
 
 dependencies:
