@@ -19,6 +19,8 @@ class ConfigOverridePlugin extends Plugin
     {
         $params = $_GET;
 
+        $allowedRoutes = $this->config->get('allowed_routes', []);
+
         // Multi-page mode: ?config_pages[route][key]=value
         if (isset($params['config_pages']) && is_array($params['config_pages'])) {
             foreach ($params['config_pages'] as $route => $keys) {
@@ -26,7 +28,10 @@ class ConfigOverridePlugin extends Plugin
                     continue;
                 }
                 $route = '/' . ltrim((string) $route, '/');
-                $page  = $this->grav['pages']->find($route);
+                if (!empty($allowedRoutes) && !in_array($route, $allowedRoutes, true)) {
+                    continue;
+                }
+                $page = $this->grav['pages']->find($route);
                 if ($page) {
                     $this->applyOverrides($page, $keys);
                 }
@@ -40,7 +45,10 @@ class ConfigOverridePlugin extends Plugin
                     continue;
                 }
                 $route = '/' . ltrim((string) $route, '/');
-                $page  = $this->grav['pages']->find($route);
+                if (!empty($allowedRoutes) && !in_array($route, $allowedRoutes, true)) {
+                    continue;
+                }
+                $page = $this->grav['pages']->find($route);
                 if ($page) {
                     $this->applyOverrides($page, $keys);
                 }
@@ -49,7 +57,7 @@ class ConfigOverridePlugin extends Plugin
 
         // Theme config mode: ?config_theme[key]=value
         if (isset($params['config_theme']) && is_array($params['config_theme'])) {
-            $themeName = $this->config->get('theme_name', 'helios');
+            $themeName = $this->grav['config']->get('system.pages.theme', 'helios');
             foreach ($params['config_theme'] as $key => $value) {
                 $key   = strip_tags((string) $key);
                 $value = strip_tags((string) $value);

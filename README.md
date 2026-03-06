@@ -58,7 +58,7 @@ Both modes can target any page, routable or not, by its route.
 
 ### Theme Config (`config_theme`)
 
-Override any theme config value for the current request. Targets the theme set in the plugin's `theme_name` setting (default: `helios`):
+Override any theme config value for the current request. Targets the active theme automatically:
 
 Syntax:
 ```
@@ -113,3 +113,4 @@ The plugin finds the target page by route internally, regardless of its routable
 - Grav's page cache can prevent overrides on cached URLs. Disable caching during dev, or visit the page via an alternate URL (e.g. `/` instead of `/courses`)
 - Values are sanitized with `strip_tags` before being applied
 - The following page config keys are blocked for security: `redirect`, `access`, `template`, `process`
+- Use the `allowed_routes` plugin setting (labelled **Allowed Page Routes** in Admin) to restrict which page routes can be targeted. Leave empty to allow all routes

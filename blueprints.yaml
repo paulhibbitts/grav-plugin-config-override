@@ -25,8 +25,11 @@ form:
         0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
-    theme_name:
-      type: text
-      label: Theme Name
-      help: The name of the active theme to target with config_theme overrides (e.g. helios)
-      default: helios
+    allowed_routes:
+      type: list
+      label: Allowed Page Routes
+      help: Page routes that can be targeted by config_page and config_pages. Leave empty to allow all routes.
+      fields:
+        .item:
+          type: text
+          placeholder: /route
