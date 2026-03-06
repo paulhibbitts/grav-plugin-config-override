@@ -68,7 +68,8 @@ class ConfigOverridePlugin extends Plugin
             $key   = strip_tags((string) $key);
             $value = strip_tags((string) $value);
 
-            if (in_array($key, self::BLOCKED_KEYS, true)) {
+            $topLevelKey = explode('.', $key, 2)[0];
+            if (in_array($topLevelKey, self::BLOCKED_KEYS, true)) {
                 continue;
             }
 
