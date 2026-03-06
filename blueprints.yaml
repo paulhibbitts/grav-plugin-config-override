@@ -1,0 +1,29 @@
+name: Config Override
+version: 1.0.0
+description: Override page frontmatter and theme config via URL query params at runtime. Keep disabled in production.
+icon: code
+author:
+  name: Paul Hibbitts
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: loose
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Status
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+    theme_name:
+      type: text
+      label: Theme Name
+      help: The name of the active theme to target with config_theme overrides (e.g. helios)
+      default: helios
