@@ -2,7 +2,8 @@
 
 A Grav plugin that overrides page frontmatter and theme config at runtime via URL query params. No file writes, no cache changes, per-request only.
 
-**Keep disabled in production.**
+> [!WARNING]
+> Keep disabled in production. This plugin applies overrides to any visitor who passes URL params, not just the site author.
 
 ## Usage
 
