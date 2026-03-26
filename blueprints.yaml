@@ -1,6 +1,6 @@
 name: Config Override
 slug: config-override
-version: 1.0.0
+version: 0.9.0
 description: Override page frontmatter and theme config via URL query params at runtime. Keep disabled in production.
 icon: code
 author:
